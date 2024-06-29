@@ -1,12 +1,6 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function getTitle(title)
-{
-  return title;
-}
+
 function App() {
  
 
@@ -14,7 +8,7 @@ function App() {
     <>
       <div>
       <h1>
-        Hello {getTitle('React')}
+        Hello World
       </h1>
 
       <label htmlFor="search">Search: </label>
