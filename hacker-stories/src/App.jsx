@@ -1,8 +1,9 @@
-//import * as React from 'react'
+import * as React from 'react'
 import './App.css'
 
 
 const App = () => {
+  console.log("App renders");
   const stories = [
     {
       title: 'React',
@@ -42,18 +43,22 @@ const App = () => {
 
 
 const  Search = () =>{
+  console.log("Search renders");
+  const [searchTerm,setSearchTerm] = React.useState('');
+
+
   // perform a task in between
   const handleChange = (event) => {
-    // synthethic event
-    console.log(event)
-    // value of target (here: input HTML element)
-    console.log(event.target.value)
+    setSearchTerm(event.target.value);
   }
 
     return (
     <div> 
       <label htmlFor="search">Search: </label>
       <input id="search" type="text" onChange={handleChange} />
+      <p>
+        Searching for <strong>{searchTerm}</strong>.
+      </p>
 
     </div>
     );
@@ -61,7 +66,9 @@ const  Search = () =>{
 
 
 
-const List = (props) =>(
+const List = (props) =>{
+  console.log("List renders");
+    return(
       <ul>
         {props.list.map((item)=>
          (<Item key={item.objectID} item={item}/>
@@ -69,11 +76,14 @@ const List = (props) =>(
          ))
         }
       </ul>   
+         );
     
-  );
+      };
 
 
-const Item = (props) =>(
+const Item = (props) =>{
+  console.log("Item renders");
+  return(
   <li>
   <span>
   <a href ={props.item.url}>{props.item.title}</a>
@@ -82,7 +92,8 @@ const Item = (props) =>(
   <span>{props.item.num_comments}</span>
   <span>{props.item.points}</span>
   </li>
-)
+  );
+};
 
 
 export default App
